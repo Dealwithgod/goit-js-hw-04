@@ -1,30 +1,55 @@
-function checkForSpam(message) {
-    const normalizedMessage = message.toLowerCase();
-    if (normalizedMessage.includes('spam') || normalizedMessage.includes('sale')) {
-        return true;
-    }
-    else {
-        return false;
-    }
+// Задача 3. Профіль гравця
 
+// Об’єкт profile описує профіль користувача на ігровій платформі. 
+// У його властивостях зберігається ім’я профілю username та кількість активних
+//  годин playTime, проведених у грі.
+
+const profile = {
+    username: "Jacob",
+    playTime: 300,
+
+    changeUsername(newName) {
+        this.username = newName;
+    },
+    updatePlayTime(hours) {
+        this.playTime += hours;
+    },
+    getInfo() {
+        return `${this.username} has ${this.playTime} active hours!`
     }
-console.log(checkForSpam("Latest technology news")); // false
-console.log(checkForSpam("JavaScript weekly newsletter")); // false
-console.log(checkForSpam("Get best sale offers now!")); // true
-console.log(checkForSpam("Amazing SalE, only tonight!")); // true
-console.log(checkForSpam("Trust me, this is not a spam message")); // true
-console.log(checkForSpam("Get rid of sPaM emails. Our book in on sale!")); // true
-console.log(checkForSpam("[SPAM] How to earn fast money?")); // true
+};
+
+
+
+
+// Доповни об’єкт profile методами для роботи з його властивостями.
+
+// Метод changeUsername(newName) повинен приймати рядок(нове ім’я) в параметр newName 
+// та змінювати значення властивості username на нове.Нічого не повертає.
+// Метод updatePlayTime(hours) повинен приймати число(кількість годин) у параметр 
+// hours та збільшити на нього значення властивості playTime.Нічого не повертає.
+// Метод getInfo() має повертати рядок формату < Username > has < amount > active hours!,
+//     де < Username > — це ім’я профілю, а < amount > — кількість ігрових годин.
+// Візьми код нижче і встав після оголошення своєї функції для перевірки коректності її
+// роботи.У консоль будуть виведені результати її роботи.
+
+
+console.log(profile.getInfo()); // "Jacob has 300 active hours!"
+
+profile.changeUsername("Marco");
+console.log(profile.getInfo()); // "Marco has 300 active hours!"
+
+profile.updatePlayTime(20);
+console.log(profile.getInfo()); // "Marco has 320 active hours!"
 
 // Залиш цей код для перевірки ментором.
 
 // На що буде звертати увагу ментор при перевірці:
 
-// Оголошена функція checkForSpam(message).
-// Виклик функції checkForSpam("Latest technology news") повертає false
-// Виклик функції checkForSpam("JavaScript weekly newsletter")повертає false
-// Виклик функції checkForSpam("Get best sale offers now!") повертає true
-// Виклик функції checkForSpam("Amazing SalE, only tonight!") повертає true
-// Виклик функції checkForSpam("Trust me, this is not a spam message") повертає true
-// Виклик функції checkForSpam("Get rid of sPaM emails. Our book in on sale!") повертає true
-// Виклик функції checkForSpam("[SPAM] How to earn fast money?") повертає true
+// Оголошена змінна profile
+// Значення змінної profile — це об’єкт з властивостями username, playTime, getInfo,
+//     changeUsername і updatePlayTime
+// Значення властивості getInfo — це функція
+// Значення властивості changeUsername — це функція
+// Значення властивості updatePlayTime — це функція
+// Для звернення до властивостей об’єкта в його методах використовується this

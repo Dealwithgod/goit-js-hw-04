@@ -1,29 +1,84 @@
-function formatMessage(message, maxLength) {
-    if (message.length <= maxLength) {
-        return message;
-    }
-    else {
-        return message.slice(0, maxLength) + "...";
-    }
-        
-    }
+// Задача 2. Розрахунок калорій
 
-console.log(formatMessage("Curabitur ligula sapien", 16)); // "Curabitur ligula..."
-console.log(formatMessage("Curabitur ligula sapien", 23)); // "Curabitur ligula sapien"
-console.log(formatMessage("Vestibulum facilisis purus nec", 20)); // "Vestibulum facilisis..."
-console.log(formatMessage("Vestibulum facilisis purus nec", 30)); // "Vestibulum facilisis purus nec"
-console.log(formatMessage("Nunc sed turpis a felis in nunc fringilla", 15)); // "Nunc sed turpis..."
-console.log(formatMessage("Nunc sed turpis a felis in nunc fringilla", 41)); // "Nunc sed turpis a felis in nunc fringilla"
+// Напиши функцію calcAverageCalories(days), яка повертає середньодобове значення
+//  кількості калорій, які спортсмен споживав протягом тижня.Функція очікує один
+// параметр: days — масив об’єктів.Кожен об’єкт описує день тижня та кількість 
+// калорій calories, спожитих спортсменом, у цей день.Візьми код нижче і встав 
+// після оголошення своєї функції для перевірки коректності її роботи.У консоль 
+// будуть виведені результати її викликів.
+
+function calcAverageCalories(days) {
+     if (days.length === 0) {
+    return 0;
+  }
+     let totalCalories = 0;
+
+for (const day of days) {
+  totalCalories += day.calories;
+}
+     const averageCalories = totalCalories / days.length;
+     return averageCalories;
+
+ }   
+  
+
+8  
+    
+console.log(
+  calcAverageCalories([
+    { day: "monday", calories: 3010 },
+    { day: "tuesday", calories: 3200 },
+    { day: "wednesday", calories: 3120 },
+    { day: "thursday", calories: 2900 },
+    { day: "friday", calories: 3450 },
+    { day: "saturday", calories: 3280 },
+    { day: "sunday", calories: 3300 }
+  ])
+); // 3180
+
+console.log(
+  calcAverageCalories([
+    { day: "monday", calories: 2040 },
+    { day: "tuesday", calories: 2270 },
+    { day: "wednesday", calories: 2420 },
+    { day: "thursday", calories: 1900 },
+    { day: "friday", calories: 2370 },
+    { day: "saturday", calories: 2280 },
+    { day: "sunday", calories: 2610 }
+  ])
+); // 2270
+
+console.log(
+  calcAverageCalories([])
+); // 0
 
 // Залиш цей код для перевірки ментором.
 
 // На що буде звертати увагу ментор при перевірці:
 
-// Оголошена функція formatMessage(message, maxLength)
-// Виклик функції formatMessage("Curabitur ligula sapien", 16) повертає "Curabitur ligula..."
-// Виклик функції formatMessage("Curabitur ligula sapien", 23) повертає "Curabitur ligula sapien"
-// Виклик функції formatMessage("Vestibulum facilisis purus nec", 20) повертає "Vestibulum facilisis..."
-// Виклик функції formatMessage("Vestibulum facilisis purus nec", 30) повертає "Vestibulum facilisis purus nec"
-// Виклик функції formatMessage("Nunc sed turpis a felis in nunc fringilla", 15) повертає "Nunc sed turpis..."
-// Виклик функції formatMessage("Nunc sed turpis a felis in nunc fringilla", 41) повертає "Nunc sed turpis a felis in nunc fringilla"
+// Оголошена функція calcAverageCalories(days)
+// Такий виклик функції calcAverageCalories повертає 3180
+// calcAverageCalories([
+//   { day: "monday", calories: 3010 },
+//   { day: "tuesday", calories: 3200 },
+//   { day: "wednesday", calories: 3120 },
+//   { day: "thursday", calories: 2900 },
+//   { day: "friday", calories: 3450 },
+//   { day: "saturday", calories: 3280 },
+//   { day: "sunday", calories: 3300 }
+// ])
+
+// Такий виклик функції calcAverageCalories повертає 2270
+// calcAverageCalories([
+//   { day: "monday", calories: 2040 },
+//   { day: "tuesday", calories: 2270 },
+//   { day: "wednesday", calories: 2420 },
+//   { day: "thursday", calories: 1900 },
+//   { day: "friday", calories: 2370 },
+//   { day: "saturday", calories: 2280 },
+//   { day: "sunday", calories: 2610 }
+// ])
+
+// Такий виклик функції calcAverageCalories повертає 0
+// calcAverageCalories([])
 
